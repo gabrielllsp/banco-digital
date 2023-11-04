@@ -1,5 +1,6 @@
 package com.example.bancodigital.di
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
@@ -16,5 +17,11 @@ object FirebaseModule {
     @Provides
     fun providerFirebaseDataBase() : FirebaseDatabase{
         return FirebaseDatabase.getInstance()
+    }
+
+    @Singleton
+    @Provides
+    fun providerFirebaseAuth() : FirebaseAuth{
+        return FirebaseAuth.getInstance()
     }
 }
