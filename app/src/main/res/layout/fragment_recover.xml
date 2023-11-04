@@ -31,7 +31,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Recuperar conta"/>
+                    android:text="Recuperar conta"
+                    android:textColor="@color/color_default"/>
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -64,12 +65,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_around"
+            style="@style/Theme.EditText"
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="8dp"
             android:drawableTint="@color/color_default"
             android:hint="Digite seu e-mail"
-            android:padding="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_email" />
