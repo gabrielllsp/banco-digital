@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.bancodigital.data.model.User
 import com.example.bancodigital.databinding.FragmentRegisterBinding
 import com.example.bancodigital.util.initToolbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,6 +17,8 @@ class RegisterFragment : Fragment() {
 
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
+
+    private val registerViewModel: RegisterViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,15 +41,20 @@ class RegisterFragment : Fragment() {
     private fun validate() {
         val name = binding.edtName.text.toString().trim()
         val email = binding.edtEmailRegister.text.toString().trim()
-        val telephone = binding.edtTelephone.text.toString().trim()
+        val phone = binding.edtTelephone.text.toString().trim()
         val password = binding.edtPasswordRegister.text.toString().trim()
 
 
         if (name.isNotEmpty()) {
             if (email.isNotEmpty()) {
-                if (telephone.isNotEmpty()) {
+                if (phone.isNotEmpty()) {
                     if (password.isNotEmpty()) {
-                        Toast.makeText(requireContext(), "Registrando", Toast.LENGTH_LONG).show()
+
+                        val user = User(name, email, phone, password)
+                        registerUser(user)
+
+
+                        Toast.makeText(requireContext(), "Usuario registrado com sucesso", Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(requireContext(), "Digite sua senha", Toast.LENGTH_LONG)
                             .show()
@@ -61,6 +70,10 @@ class RegisterFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Digite seu nome", Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun registerUser(user: User){
+
     }
 
     override fun onDestroy() {

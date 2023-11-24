@@ -60,6 +60,11 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
 
+    // ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    // LiveData
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
     //Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.42")
     kapt("com.google.dagger:hilt-android-compiler:2.42")
